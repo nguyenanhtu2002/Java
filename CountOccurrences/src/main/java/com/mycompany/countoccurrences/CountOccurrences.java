@@ -13,38 +13,46 @@ import java.util.Scanner;
 public class CountOccurrences {
 
     public static void main(String[] args) {
-        int n;
+              int n;
         System.out.println("nhap so phan tu mang: ");
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
-        int arr[] = new int[n + 1];
+        int arr[] = new int[n];
         int countArray[] = new int[n];
 
-        inputArray(n, arr);
+        inputArray(n, arr, countArray);
         countOccurrencesOfArrays(n, arr, countArray);
     }
 
-    public static void inputArray(int n, int arr[]) {
+    public static void inputArray(int n, int arr[], int countArray[]) {
         Scanner sc = new Scanner(System.in);
         for (int i = 0; i < n; i++) {
             System.out.printf("\n arr[%d] = ", i);
             arr[i] = sc.nextInt();
+            countArray[i] = -1;
         }
     }
+    // a {1, 2, 3, 2, 4, 2, 5, 3};
+    //b   {-1, 0, -1, -1, -1, -1, -1, -1};
+    //count =1
 
     public static void countOccurrencesOfArrays(int n, int arr[], int countArray[]) {
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-
+        for (int i = 0; i < arr.length; i++) {
+            int count = 1;
+            for (int j = i + 1; j < countArray.length; j++) {
                 if (arr[i] == arr[j]) {
-                    countArray[i] += 1;
+                    count++;
+                    countArray[j] = 0;
                 }
             }
+            if (countArray[i] != 0) {
+                countArray[i] = count;
+            }
         }
-
-        int tmp = 0;
-        for (int i = 0; i < n; i++) {
-            System.out.printf("so lan xuat hien cua %d la %d \n", arr[i], countArray[i]);
+        for (int i = 0; i < countArray.length; i++) {
+            if (countArray[i] != 0) {
+                System.out.printf("%d xuat hien %d lan \n",arr[i],countArray[i]);
+            }
         }
     }
 }
