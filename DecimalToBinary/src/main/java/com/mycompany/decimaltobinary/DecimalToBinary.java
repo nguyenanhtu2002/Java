@@ -1,23 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
+
 package com.mycompany.decimaltobinary;
 
 import java.util.Scanner;
 
-/**
- *
- * @author Nguyen Anh Tu
- */
 public class DecimalToBinary {
 
     public static void main(String[] args) {
         int decimal;
-        System.out.println("Nhap so can chuyen doi: ");
+        System.out.println("enter decimal number: ");
         Scanner sc = new Scanner(System.in);
         decimal = sc.nextInt();
         if (decimal > 0) {
-            System.out.printf("ket qua: %s", convertPositiveDecimalToBinary(decimal));
+            System.out.printf("result: %s", convertPositiveDecimalToBinary(decimal));
         }
 
     }
