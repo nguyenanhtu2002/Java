@@ -6,17 +6,13 @@ package com.mycompany.standardizationofletters;
 
 import java.util.Scanner;
 
-/**
- *
- * @author Nguyen Anh Tu
- */
 public class StandardizationOfLetters {
 
 public static void main(String[] args) {
         String str;
 
-        String ketqua = "";
-        System.out.println("Nhap chuoi: ");
+        String result = "";
+        System.out.println("Input string: ");
         Scanner sc = new Scanner(System.in);
         str = sc.nextLine();
         str = str.replaceAll("\\s+", " ");
@@ -24,11 +20,11 @@ public static void main(String[] args) {
         str = str.toLowerCase();
         String temp[] = str.split(" ");
         for (int i = 0; i < temp.length; i++) {
-            ketqua += String.valueOf(temp[i].charAt(0)).toUpperCase() + temp[i].substring(1);
+            result += String.valueOf(temp[i].charAt(0)).toUpperCase() + temp[i].substring(1);
             if (i < temp.length - 1) {
-                ketqua += " ";
+                result += " ";
             }
         }
-        System.out.println(ketqua);
+        System.out.println(result);
     }
 }
