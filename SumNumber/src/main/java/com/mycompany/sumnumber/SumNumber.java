@@ -11,6 +11,18 @@ package com.mycompany.sumnumber;
 public class SumNumber {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        int n;
+        int temp = 0;
+        do {
+            System.out.println("input n: ");
+            Scanner sc = new Scanner(System.in);
+            n = sc.nextInt();
+            for (int i = 0; i < n; i++) {
+                if (i % 2 == 0 && i < n) {
+                    temp += i;
+                }
+            }
+        } while (n < 0);
+        System.out.printf("result: %d", temp);
     }
 }
