@@ -13,21 +13,21 @@ public class DecimalToBinary {
 
     public static void main(String[] args) {
         int decimal;
-        do {
-            System.out.println("Nhap so can chuyen doi: ");
-            Scanner sc = new Scanner(System.in);
-            decimal = sc.nextInt();
-        } while (decimal <= 0);
+        System.out.println("Nhap so can chuyen doi: ");
+        Scanner sc = new Scanner(System.in);
+        decimal = sc.nextInt();
+        if (decimal > 0) {
+            System.out.printf("ket qua: %s", convertPositiveDecimalToBinary(decimal));
+        }
 
-        System.out.printf("ket qua: %s", decimalToBinary(decimal));
     }
 
-    public static String decimalToBinary(int decimal) {
+    private static String convertPositiveDecimalToBinary(int decimal) {
         String binary = "";
         while (decimal != 0) {
-            int b = decimal % 2;
-            binary = b + binary;
-            decimal = decimal / 2;
+            int bit = decimal % 2;
+            binary = bit + binary;
+            decimal /= 2;
         }
         return binary;
     }
