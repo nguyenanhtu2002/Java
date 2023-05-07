@@ -1,20 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
 //cho một mảng, in ra số lần xuất hiện của các phần tử trong mảng
 package com.mycompany.countoccurrences;
 
 import java.util.Scanner;
 
-/**
- *
- * @author Nguyen Anh Tu
- */
 public class CountOccurrences {
 
     public static void main(String[] args) {
-              int n;
-        System.out.println("nhap so phan tu mang: ");
+        int n;
+        System.out.println("Enter the number of array elements: ");
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
         int arr[] = new int[n];
@@ -32,9 +25,6 @@ public class CountOccurrences {
             countArray[i] = -1;
         }
     }
-    // a {1, 2, 3, 2, 4, 2, 5, 3};
-    //b   {-1, 0, -1, -1, -1, -1, -1, -1};
-    //count =1
 
     public static void countOccurrencesOfArrays(int n, int arr[], int countArray[]) {
         for (int i = 0; i < arr.length; i++) {
@@ -51,7 +41,7 @@ public class CountOccurrences {
         }
         for (int i = 0; i < countArray.length; i++) {
             if (countArray[i] != 0) {
-                System.out.printf("%d xuat hien %d lan \n",arr[i],countArray[i]);
+                System.out.printf("%d appears %d times \n", arr[i], countArray[i]);
             }
         }
     }
