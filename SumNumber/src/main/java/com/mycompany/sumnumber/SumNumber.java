@@ -14,7 +14,7 @@ public class SumNumber {
         int n;
         int temp = 0;
         do {
-            System.out.println("input n: ");
+            System.out.println("input number n: ");
             Scanner sc = new Scanner(System.in);
             n = sc.nextInt();
             for (int i = 0; i < n; i++) {
