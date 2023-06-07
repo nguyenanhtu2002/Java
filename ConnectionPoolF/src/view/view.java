@@ -11,16 +11,16 @@ public class view {
         StudentDao studentDao = new StudentDaoImpl();
 
         // Thêm sv
-        Student newStudent = new Student(1, "Tu", 20);
+        Student newStudent = new Student(11, "test", 20);
         studentDao.addStudent(newStudent);
         // cap nhat
-        Student update = studentDao.getStudentById(1);
-        update.setName("Nguyen Anh Tu");
-        update.setAge(21);
-        studentDao.updateStudent(update);
-        // xoa
-        Student delete = studentDao.getStudentById(1);
-        studentDao.deleteStudent(delete);
+//        Student update = studentDao.getStudentById(1);
+//        update.setName("Nguyen Anh Tu");
+//        update.setAge(21);
+//        studentDao.updateStudent(update);
+//        // xoa
+//        Student delete = studentDao.getStudentById(1);
+//        studentDao.deleteStudent(delete);
 
         // in sv
         List<Student> students = studentDao.getAllStudents();

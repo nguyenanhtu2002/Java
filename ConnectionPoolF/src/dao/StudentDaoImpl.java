@@ -9,10 +9,7 @@ import java.util.List;
 
 public class StudentDaoImpl implements StudentDao {
 
-    private DataSource dataSource;
-
     public StudentDaoImpl() {
-        dataSource = DataSource.getInstance();
     }
 
     // phuongthuc in sinh vien
@@ -20,7 +17,7 @@ public class StudentDaoImpl implements StudentDao {
     public List<Student> getAllStudents() {
         List<Student> students = new ArrayList<>();
         String query = "SELECT * FROM students";
-        try (Connection connection = dataSource.getConnection(); Statement statement = connection.createStatement()) {
+        try (Connection connection = DataSource.getInstance().getConnection(); Statement statement = connection.createStatement()) {
             ResultSet resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
@@ -39,7 +36,7 @@ public class StudentDaoImpl implements StudentDao {
     public Student getStudentById(int id) {
         Student student = null;
         String query = "SELECT * FROM students WHERE id = ?";
-        try (Connection connection = dataSource.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+        try (Connection connection = DataSource.getInstance().getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
@@ -57,7 +54,7 @@ public class StudentDaoImpl implements StudentDao {
     @Override
     public boolean addStudent(Student student) {
         String query = "INSERT INTO students (id, name, age) VALUES (?, ?, ?)";
-        try (Connection connection = dataSource.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+        try (Connection connection = DataSource.getInstance().getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setInt(1, student.getId());
             preparedStatement.setString(2, student.getName());
             preparedStatement.setInt(3, student.getAge());
@@ -73,7 +70,7 @@ public class StudentDaoImpl implements StudentDao {
     @Override
     public boolean updateStudent(Student student) {
         String query = "UPDATE students SET name=?, age=? WHERE id=?";
-        try (Connection connection = dataSource.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+        try (Connection connection = DataSource.getInstance().getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, student.getName());
             preparedStatement.setInt(2, student.getAge());
             preparedStatement.setInt(3, student.getId());
@@ -89,7 +86,7 @@ public class StudentDaoImpl implements StudentDao {
     @Override
     public boolean deleteStudent(Student student) {
         String query = "DELETE FROM students WHERE id=?";
-        try (Connection connection = dataSource.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+        try (Connection connection = DataSource.getInstance().getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setInt(1, student.getId());
             preparedStatement.executeUpdate();
             return true;
