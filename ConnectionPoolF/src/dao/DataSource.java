@@ -8,7 +8,6 @@ import java.util.Objects;
 public class DataSource {
 
     private static DataSource instance;
- //   private HikariDataSource dataSource;
     private static HikariDataSource ds;
      private static DataSource dataSource;
 
@@ -23,13 +22,6 @@ public class DataSource {
         config.setMaxLifetime(1800000);
         ds = new HikariDataSource(config);
     }
-
-//    public static DataSource getInstance() {
-//        if (instance == null) {
-//            instance = new DataSource();
-//        }
-//        return instance;
-//    }
 
     public static DataSource getInstance() {
         if (Objects.isNull(dataSource)) {
