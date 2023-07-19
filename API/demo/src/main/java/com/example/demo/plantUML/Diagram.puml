@@ -1,0 +1,15 @@
+@startuml
+class TagFinance {
+  - id: int
+  - name: String
+  - description: String
+}
+
+class Transaction {
+  - id: int
+  - title: String
+  - description: String
+  - amount: double
+}
+TagFinance "1..*" -- "0..*" Transaction
+@enduml
